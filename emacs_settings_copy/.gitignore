@@ -1,0 +1,11 @@
+.ercpass
+*.~
+backups/*
+elpa/*
+auto-save-list/*
+eshell/*
+tramp
+places
+url/*
+*~
+.smex-items

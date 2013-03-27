@@ -34,8 +34,6 @@
     (mapcar (lambda (file) 
               (let* ((copy-target (merge-pathnames file target-dir))
                      (copy-src (merge-pathnames file src-dir)))
-                (print copy-target)
-                (print copy-src)
                 (if (cl-fad:file-exists-p copy-target)
                     (unless skip-conflicts
                       (if overwrite-conflicts
@@ -68,6 +66,7 @@
                     (cl-fad:copy-file copy-src copy-target :overwrite nil))))
             list-of-files)))
 
+(format t "Creating backups.~%")
 
 
 (make-backups (mapcar #'file-namestring *conflicting-bin*) 
@@ -76,10 +75,32 @@
               "~/" "backup/config/")
 
 
+
 (format t "Deploying files in ~a and ~a to ~a and ~a respectively~%~%" "./bin" "./config" "~/bin" "~/")
 
 
 (deploy-files *files-in-local-bin* "bin/" "~/bin/")
 (deploy-files *files-in-local-config* "config/" "~/")
 
-(link-directory "emacs_settings" "~/.emacs.d")
+;;(format t "Copying ~s to ~s~%" "./emacs_settings" "~/.emacs.d")
+
+
+(format t "Remember to link ~a to ~a.~%" "emacs_settings" "~/.emacs.d")
+
+;; (if (or (cl-fad:directory-exists-p #P"~/.emacs.d") (cl-fad:file-exists-p #P"~/.emacs.d"))
+;;     (progn (format t "~s directory or symbolic link already exists. Please choose an option to continue.~%" #P "~/.emacs.d")
+;;            (format t "[O]verwrite.~%")
+;;            (format t "[S]kip.~%")
+;;            (tagbody
+;;               read
+              
+;;               (case (read)
+;;                 (o (progn (trivial-shell:shell-command "rm ~/.emacs.d")
+;;                           (trivial-shell:shell-command "mkdir ~/.emacs.d")
+;;                           (trivial-shell:shell-command "cp -a emacs_settings/. ~/emacs.d/")))
+;;                 (s t)
+;;                 (otherwise (progn (format t "Please enter a valid selection.~%") (go read))))))
+    
+;;     (progn
+;;       (trivial-shell:shell-command "mkdir ~/.emacs.d")
+;;       (trivial-shell:shell-command "cp -a emacs_settings/. ~/emacs.d/")))
