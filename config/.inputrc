@@ -1,0 +1,8 @@
+"\M\x6C": backward-word
+"\M\x79": forward-word
+"\M\x6E": backward-character
+"\M\x69": forward-character
+"\M\x70": kill-word
+"\M\x66": backward-kill-word
+"\M\x73": backward-delete-char
+"\M\x74": delete-char

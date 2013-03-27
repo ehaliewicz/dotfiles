@@ -1,0 +1,7 @@
+[user]
+	name = Erik Haliewicz
+	email = ehal256@gmail.com
+[gui]
+	recentrepo = /media/Titan/メヂア/ドキュメント/Dropbox/repos/clone
+[push]
+	default = simple

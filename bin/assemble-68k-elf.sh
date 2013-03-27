@@ -1,0 +1,1 @@
+/opt/toolchains/gen/m68k-elf/bin/m68k-elf-as $1 -o $2
