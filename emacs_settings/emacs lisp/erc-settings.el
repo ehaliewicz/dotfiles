@@ -10,9 +10,8 @@
 (setq erc-hide-timestamps nil)
 (setq erc-autojoin-channels-alist
       '((".*\\.cyberdynesystems.net" "#japanese.utf8" "#ajatt")
-        (".*\\.freenode.net" "#lisp" "#scheme" "#haskell" "#ruby" "#rails")
-                                    ;;("quakenet.org")
-                                    ))
+        (".*\\.freenode.net" "#lisp" "#lisp-ja" "#scheme" "#haskell" "#ruby" "#rails" "#sbcl" "#lispgames")
+        (".*\\.esper.net" "#hard-light" "#freespace")))
 
 (require 'erc-dcc)
 
@@ -30,7 +29,8 @@
   (if (get-buffer "irc.cyberdynesystems.net:6667")
       (erc-track-switch-buffer 1)
     (when (y-or-n-p "Start ERC? ")
-      (erc :server "irc.freenode.net" :port 6667 :nick "toekutr")
+      (erc :server "irc.freenode.net" :port 6667 :nick "ehaliewicz")
       (erc :server "irc.cyberdynesystems.net" :port 6667 :nick "erik")
+      (erc :server "irc.esper.net" :port 6667 :nick "toekutr")
       ;;(erc :server "irc.quakenet.org" :port 6667 :nick "toekutr")
       )))

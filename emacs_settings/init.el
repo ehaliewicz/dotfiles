@@ -29,7 +29,8 @@
 
 ;;(global-rainbow-delimiters-mode)
 
-
+(eval-after-load "flyspell"
+  '(defun flyspell-mode (&optional arg)))
 
   (add-hook 'after-init-hook
             #'(lambda ()
